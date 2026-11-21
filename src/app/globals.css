@@ -1,69 +1,58 @@
 @import "tailwindcss";
 
-@custom-variant dark (&:where(.dark, .dark *));
-
 /* ── Colour tokens: change the palette here ───────────────── */
 :root {
-  --bg: #f4f4f0;
-  --surface: #ffffff;
-  --surface-2: #ecece6;
-  --border: #dcdcd4;
-  --fg: #0e0e10;
-  --muted: #5f5f66;
-  --accent: #b5e330;       /* lime */
-  --accent-fg: #0e0e10;
-}
-
-.dark {
-  --bg: #0b0b0d;
-  --surface: #141417;
-  --surface-2: #1c1c21;
-  --border: #26262c;
-  --fg: #f2f2ee;
-  --muted: #9a9aa3;
-  --accent: #c8f169;
-  --accent-fg: #0b0b0d;
+  --orange: #e4572e;
+  --orange-deep: #c9431d;
+  --paper: #f3f3f1;
+  --card: #ffffff;
+  --ink: #0e0e0e;
+  --grey: #8a8a8a;
+  --line: #e2e2de;
 }
 
 @theme inline {
-  --color-bg: var(--bg);
-  --color-surface: var(--surface);
-  --color-surface-2: var(--surface-2);
-  --color-border: var(--border);
-  --color-fg: var(--fg);
-  --color-muted: var(--muted);
-  --color-accent: var(--accent);
-  --color-accent-fg: var(--accent-fg);
+  --color-orange: var(--orange);
+  --color-orange-deep: var(--orange-deep);
+  --color-paper: var(--paper);
+  --color-card: var(--card);
+  --color-ink: var(--ink);
+  --color-grey: var(--grey);
+  --color-line: var(--line);
   --font-sans: var(--font-inter);
   --font-display: var(--font-display);
 }
 
 html {
-  scroll-behavior: smooth;
   scroll-padding-top: 5rem;
 }
+html.lenis, html.lenis body { height: auto; }
+.lenis.lenis-smooth { scroll-behavior: auto !important; }
+.lenis.lenis-stopped { overflow: hidden; }
 
 body {
-  background: var(--bg);
-  color: var(--fg);
+  background: var(--paper);
+  color: var(--ink);
   -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
 }
 
-::selection {
-  background: var(--accent);
-  color: var(--accent-fg);
-}
+::selection { background: var(--orange); color: #fff; }
 
-.grain {
-  background-image: radial-gradient(var(--border) 1px, transparent 1px);
-  background-size: 22px 22px;
+.display {
+  font-family: var(--font-display);
+  font-weight: 800;
+  letter-spacing: -0.045em;
+  line-height: 0.92;
+  text-transform: uppercase;
 }
 
 @keyframes marquee {
   from { transform: translateX(0); }
   to { transform: translateX(-100%); }
 }
+@keyframes spin-slow { to { transform: rotate(360deg); } }
 
 @media (prefers-reduced-motion: reduce) {
-  * { animation: none !important; scroll-behavior: auto !important; }
+  *, *::before, *::after { animation: none !important; transition-duration: 0.01ms !important; }
 }

@@ -1,29 +1,23 @@
 import type { Metadata } from "next";
-import { Inter, Space_Grotesk } from "next/font/google";
-import { ThemeProvider } from "@/components/ThemeProvider";
+import { Inter, Inter_Tight } from "next/font/google";
+import SmoothScroll from "@/components/SmoothScroll";
 import { profile } from "@/data/portfolio";
 import "./globals.css";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
-const display = Space_Grotesk({ subsets: ["latin"], variable: "--font-display" });
+const display = Inter_Tight({ subsets: ["latin"], weight: ["600", "700", "800"], variable: "--font-display" });
 
 export const metadata: Metadata = {
-  title: `${profile.name} — ${profile.role}`,
-  description: profile.tagline,
-  openGraph: {
-    title: `${profile.name} — Portfolio`,
-    description: profile.tagline,
-    type: "website",
-  },
+  title: `${profile.name} — ${profile.roleLong}`,
+  description: profile.heroIntro,
+  openGraph: { title: `${profile.name} — Portfolio`, description: profile.heroIntro, type: "website" },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="en">
       <body className={`${inter.variable} ${display.variable} font-sans`}>
-        <ThemeProvider attribute="class" defaultTheme="dark" enableSystem={false}>
-          {children}
-        </ThemeProvider>
+        <SmoothScroll>{children}</SmoothScroll>
       </body>
     </html>
   );

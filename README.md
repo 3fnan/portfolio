@@ -1,6 +1,6 @@
 # Afnan Abdul Rahiman — Portfolio
 
-Personal portfolio built with **Next.js 15, React 19, TypeScript, Tailwind CSS v4 and Framer Motion**.
+Personal portfolio built with **Next.js 15, React 19, TypeScript, Tailwind CSS v4, Framer Motion and Lenis**.
 
 ## Run it locally
 
@@ -17,41 +17,32 @@ Production build: `npm run build` then `npm start`.
 
 ## Where to edit
 
-| What | File |
+| What | Where |
 |---|---|
-| All text: bio, jobs, projects, skills, links | `src/data/portfolio.ts` |
-| Colours (dark + light palettes) | `src/app/globals.css` (`:root` and `.dark`) |
+| All text, projects, case studies, experience, skills | `src/data/portfolio.ts` |
+| Hero photo | save as `public/profile.png`, set `photo: "/profile.png"` |
+| Project screenshots | `public/projects/*.png`, set each project's `image` |
+| Big scroll-zoom image | `public/showcase.jpg`, set `showcaseImage` |
+| Colours (orange, paper, ink) | `src/app/globals.css` (`:root`) |
 | Fonts, page title, SEO | `src/app/layout.tsx` |
+| Section order | `src/app/page.tsx` |
+| Case study page layout | `src/components/CaseStudy.tsx` |
 | Resume download | replace `public/resume.pdf` |
-| Profile photo | add `public/profile.jpg`, set `photo: "/profile.jpg"` in `portfolio.ts` |
-| Section order / remove a section | `src/app/page.tsx` |
-| A section's layout | `src/components/<Section>.tsx` |
 
-**Project links:** set `github` and `live` for each project in `portfolio.ts`
-(the ones marked `"#"` are placeholders).
+Any `image` left empty shows generated orange artwork instead.
 
-## Structure
+See **STRATEGY.md** for positioning, the visitor journey and a prioritized to-do list.
 
-```
-src/
-├── app/
-│   ├── layout.tsx      fonts, theme provider, metadata
-│   ├── page.tsx        assembles the sections
-│   └── globals.css     colour tokens, animations
-├── components/
-│   ├── Navbar.tsx      sticky pill nav, theme toggle, mobile menu
-│   ├── Hero.tsx        headline, CTAs, photo card, stats
-│   ├── About.tsx       bento grid: summary, current role, education, certs, languages
-│   ├── Experience.tsx  timeline
-│   ├── Projects.tsx    project cards
-│   ├── Skills.tsx      marquee + grouped skills
-│   ├── Contact.tsx     contact card + form (opens email app)
-│   ├── Footer.tsx
-│   ├── Reveal.tsx      scroll-in animation wrapper
-│   └── SectionHeading.tsx
-└── data/
-    └── portfolio.ts    ← your content
-```
+## Pages
+
+- `/` home: hero, brands, about + recruiter quick view, services, work, experience, why me, showcase, toolkit, contact
+- `/work/<slug>` one case study per project (generated from `projects` in `portfolio.ts`)
+
+## Motion
+
+Smooth scrolling (Lenis), letter and word blur-in headings, a hero that zooms and blurs as content slides over it,
+parallax cards, count-up numbers, logo and toolkit marquees, a full-screen menu, a scroll progress bar and an
+animated architecture diagram on case studies. Everything falls back to simple fades for reduced-motion users.
 
 ## Contact form
 

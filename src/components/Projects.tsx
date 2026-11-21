@@ -1,74 +1,74 @@
+import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
-import { FaGithub } from "react-icons/fa";
-import { projects } from "@/data/portfolio";
+import { profile, projects } from "@/data/portfolio";
+import Art from "./Art";
+import BlurText from "./BlurText";
+import Parallax from "./Parallax";
 import Reveal from "./Reveal";
-import SectionHeading from "./SectionHeading";
+import Tag from "./Tag";
+
+// Scattered layout: each card gets its own width, offset and scroll speed
+const layout = [
+  { wrap: "md:col-start-1 md:w-[78%]", speed: 30, ratio: "aspect-[4/4.6]" },
+  { wrap: "md:col-start-2 md:ml-auto md:w-[62%] md:mt-24", speed: 80, ratio: "aspect-[4/4.4]" },
+  { wrap: "md:col-span-2 md:mx-auto md:w-[72%]", speed: 40, ratio: "aspect-[16/9]" },
+  { wrap: "md:col-start-1 md:w-[60%] md:ml-[8%]", speed: 70, ratio: "aspect-[4/4]" },
+  { wrap: "md:col-start-2 md:ml-auto md:w-[70%] md:mt-32", speed: 50, ratio: "aspect-[4/3]" },
+];
 
 export default function Projects() {
   return (
-    <section id="projects" className="px-4 py-24">
-      <div className="mx-auto max-w-6xl">
-        <SectionHeading index="03" label="Projects" title="Selected work" />
+    <section id="work" className="mx-auto max-w-[1400px] px-5 py-28 sm:px-10">
+      <Reveal><Tag>Portfolio</Tag></Reveal>
+      <BlurText text="Selected | work." className="display mt-5 text-[clamp(2.6rem,6vw,5rem)]" />
 
-        <div className="grid gap-6 md:grid-cols-2">
-          {projects.map((p, i) => (
-            <Reveal key={p.title} delay={(i % 2) * 0.1}>
-              <article className="group flex h-full flex-col overflow-hidden rounded-3xl border border-border bg-surface transition duration-300 hover:-translate-y-1 hover:border-muted/50">
-                <div
-                  className="relative flex h-52 items-end overflow-hidden p-7"
-                  style={{
-                    background: `radial-gradient(120% 120% at 100% 0%, ${p.accent}, transparent 60%), var(--surface-2)`,
-                  }}
-                >
-                  <span className="absolute right-6 top-6 rounded-full bg-bg/70 px-3 py-1 text-xs backdrop-blur">
-                    {p.year}
-                  </span>
-                  <h3 className="font-display text-4xl font-bold tracking-tight transition duration-500 group-hover:translate-x-1">
-                    {p.title}
-                  </h3>
-                </div>
-
-                <div className="flex flex-1 flex-col p-7">
-                  <p className="text-sm uppercase tracking-widest text-muted">{p.subtitle}</p>
-                  <p className="mt-3 leading-relaxed">{p.description}</p>
-                  <ul className="mt-4 space-y-1.5 text-sm text-muted">
-                    {p.highlights.map((h) => (
-                      <li key={h}>→ {h}</li>
-                    ))}
-                  </ul>
-                  <div className="mt-6 flex flex-wrap gap-2">
-                    {p.stack.map((s) => (
-                      <span key={s} className="rounded-full border border-border px-3 py-1 text-xs">
-                        {s}
+      <div className="mt-16 grid gap-16 md:grid-cols-2 md:gap-x-16 md:gap-y-24">
+        {projects.map((p, i) => {
+          const l = layout[i % layout.length];
+          return (
+            <Parallax key={p.title} speed={l.speed} className={l.wrap}>
+              <Reveal>
+                <Link href={`/work/${p.slug}`} className="group block bg-card p-2.5 shadow-sm">
+                  <div className={`relative overflow-hidden ${l.ratio}`}>
+                    <div className="h-full w-full transition-transform duration-700 ease-out group-hover:scale-105">
+                      <Art kind={p.art} src={p.image} alt={p.title} />
+                    </div>
+                    <div className="absolute inset-0 flex flex-col justify-end bg-gradient-to-t from-black/80 via-black/25 to-transparent p-5 text-white opacity-0 transition-opacity duration-500 group-hover:opacity-100">
+                      <p className="max-w-sm text-sm leading-relaxed">{p.description}</p>
+                      <div className="mt-3 flex flex-wrap gap-1.5">
+                        {p.stack.slice(0, 5).map((s) => (
+                          <span key={s} className="bg-white/15 px-2 py-1 text-[10px] backdrop-blur">{s}</span>
+                        ))}
+                      </div>
+                      <span className="mt-4 inline-flex w-fit items-center gap-2 bg-orange px-3 py-2 text-xs font-bold uppercase">
+                        Read case study <ArrowUpRight size={14} />
                       </span>
-                    ))}
+                    </div>
                   </div>
-                  <div className="mt-auto flex gap-3 pt-7">
-                    {p.github && (
-                      <a
-                        href={p.github}
-                        target="_blank"
-                        className="inline-flex items-center gap-2 rounded-full border border-border px-4 py-2 text-sm transition hover:bg-fg hover:text-bg"
-                      >
-                        <FaGithub /> Code
-                      </a>
-                    )}
-                    {p.live && (
-                      <a
-                        href={p.live}
-                        target="_blank"
-                        className="inline-flex items-center gap-2 rounded-full bg-accent px-4 py-2 text-sm font-medium text-accent-fg"
-                      >
-                        Live <ArrowUpRight size={14} />
-                      </a>
-                    )}
+                  <div className="mt-2.5 flex items-center justify-between bg-black/[0.04] px-3 py-2 text-[11px] font-semibold">
+                    <span><span className="text-orange">✳</span> {p.title.toUpperCase()}</span>
+                    <span className="text-ink/60">/{p.category} · {p.year}</span>
                   </div>
-                </div>
-              </article>
-            </Reveal>
-          ))}
-        </div>
+                  <p className="px-1 pb-1 pt-3 text-sm text-ink/70">{p.tagline}</p>
+                </Link>
+              </Reveal>
+            </Parallax>
+          );
+        })}
       </div>
+
+      <Reveal className="mt-20">
+        <a
+          href={profile.socials.github}
+          target="_blank"
+          className="group inline-flex items-center gap-6 border-l-2 border-orange bg-card py-1.5 pl-4 pr-1.5 text-xs font-semibold uppercase"
+        >
+          All projects on GitHub
+          <span className="grid h-7 w-7 place-items-center bg-orange text-white transition-transform group-hover:rotate-45">
+            <ArrowUpRight size={14} />
+          </span>
+        </a>
+      </Reveal>
     </section>
   );
 }
