@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useInView } from "framer-motion";
 
 /**
@@ -11,6 +11,7 @@ import { useInView } from "framer-motion";
  * before JavaScript loads, runs on the GPU (transform only) and never re-renders React.
  * - `delay` is measured from page load (or from scrolling into view with `inView`)
  * - `inView`: reels wait (paused) until the word scrolls into view
+ * - `repeat` (with inView): respin every time the word comes back into view
  * - `grade`: shaded gradient letters; the landed letters get a light sweep
  * Reels are seeded, so server and browser render the same characters.
  */
@@ -29,6 +30,7 @@ export default function SlotText({
   delay = 0,
   stagger = 0.11,
   inView = false,
+  repeat = false,
   grade = false,
 }: {
   text: string;
@@ -37,12 +39,18 @@ export default function SlotText({
   delay?: number;
   stagger?: number;
   inView?: boolean;
+  repeat?: boolean;
   grade?: boolean;
 }) {
   // watch the whole word (a reel is a tall strip that's mostly hidden)
   const ref = useRef<HTMLElement>(null);
-  const seen = useInView(ref, { once: true, amount: 0.3 });
+  const seen = useInView(ref, { once: !repeat, amount: 0.3 });
   const waiting = inView && !seen;
+  // each new entry remounts the reels, which restarts their CSS spin from the top
+  const [round, setRound] = useState(0);
+  useEffect(() => {
+    if (repeat && seen) setRound((r) => r + 1);
+  }, [repeat, seen]);
 
   const chars = Array.from(text);
   const durOf = (i: number) => 1.25 + i * stagger * 1.6;
@@ -58,7 +66,7 @@ export default function SlotText({
         const reel = Array.from({ length: spins }, (_, k) => pool[Math.floor(seeded(i, k) * pool.length)]);
         reel.push(ch);
         return (
-          <span key={i} aria-hidden className="relative inline-block overflow-hidden align-bottom" style={{ height: "1em", lineHeight: "1em" }}>
+          <span key={`${i}-${round}`} aria-hidden className="relative inline-block overflow-hidden align-bottom" style={{ height: "1em", lineHeight: "1em" }}>
             {/* invisible copy keeps the correct letter width */}
             <span className="invisible">{ch}</span>
             <span

@@ -73,7 +73,7 @@ export default function Footer() {
               aria-hidden
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
-              viewport={{ once: true, amount: 0.3 }}
+              viewport={{ once: false, amount: 0.3 }}
               transition={{ delay: 1.9, duration: 0.6 }}
               className={`${cls} absolute inset-0`}
               style={{ color: "#7892c4", textShadow: EXTRUDE, transform: "translateZ(-1px)" }}
@@ -85,8 +85,8 @@ export default function Footer() {
               ))}
             </motion.p>
 
-            {/* slot-machine name on top: reels spin when the footer scrolls into view */}
-            <SlotText as="p" inView grade stagger={0.09} text={name} className={`${cls} relative`} />
+            {/* slot-machine name on top: reels respin every time the footer scrolls into view */}
+            <SlotText as="p" inView repeat grade stagger={0.09} text={name} className={`${cls} relative`} />
           </motion.div>
         </div>
 
