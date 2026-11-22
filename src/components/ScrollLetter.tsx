@@ -139,7 +139,7 @@ export default function ScrollLetter() {
               </figcaption>
             </div>
             <p className="mt-6 font-mono text-[11px] uppercase leading-relaxed tracking-[0.12em] text-ink/55">
-              Calicut · Kannur · Mangalore · IN
+              Kannur · Calicut · Mangalore · IN
             </p>
           </motion.figure>
 

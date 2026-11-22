@@ -11,7 +11,7 @@ export const profile = {
   initials: "AA",
   role: "AI Developer",
   roleLong: "AI/ML & Python Developer",
-  location: "Calicut · Kannur · Mangalore, India",
+  location: "From Kannur · Based in Calicut, India",
   // Short intro: who you are + what you're doing right now
   heroIntro: "AI/ML & backend engineer who turns models into production-ready products",
   valueProp:
@@ -43,12 +43,13 @@ export const storyFile = {
   meta: [
     { k: "FILE", v: "N°01" },
     { k: "EST", v: "2022" },
-    { k: "BASED", v: "CALICUT · KANNUR · MANGALORE" },
+    { k: "FROM", v: "KANNUR" },
+    { k: "BASED", v: "CALICUT, IN" },
     { k: "STATUS", v: "OPEN" },
   ],
   greeting: "Hey, you found my file.",
   letter: [
-    "I'm Afnan, a computer science student from Calicut, Kerala. I started my degree at Sahyadri College in 2022 because I wanted to understand how machines learn. Lectures only took me so far, so I started building.",
+    "I'm Afnan, a computer science student from Kannur, Kerala, now based in Calicut. I started my degree at Sahyadri College in 2022 because I wanted to understand how machines learn. Lectures only took me so far, so I started building.",
     "My first real project, Hummello, turned humming into bansuri flute audio. Then came the internships: at TrueByte Innovation I worked on the backend of their product, CVETrack.ai; at Blend-ed I learned Django through Harvard's CS50 Web; and now I'm doing research at XandY Learning. Somewhere in between, I built my first website for a client in the UAE.",
     "I'm still early in this, and I like it that way. I'm open to opportunities where I can keep learning, ask good questions and build useful things with a good team.",
   ],
