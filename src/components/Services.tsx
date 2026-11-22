@@ -3,7 +3,7 @@
 import { useRef, useState } from "react";
 import { AnimatePresence, motion, useMotionValueEvent, useReducedMotion, useScroll, useTransform } from "framer-motion";
 import { services } from "@/data/portfolio";
-import Art from "./Art";
+import { SERVICE_LOGOS, TechLogo } from "./TechLogo";
 import ChapterHead from "./ChapterHead";
 
 /**
@@ -35,8 +35,8 @@ export default function Services() {
       </div>
 
       <div ref={ref} style={{ height: reduce ? "auto" : `${N * 80}vh` }} className="relative">
-        <div className={`${reduce ? "" : "sticky top-0 h-svh"} flex items-center justify-center overflow-hidden`}>
-          <div className="relative aspect-square w-[min(84vw,640px)]">
+        <div className={`${reduce ? "py-10" : "sticky top-0 h-svh pt-20 pb-6"} flex items-center justify-center overflow-hidden`}>
+          <div className="relative aspect-square" style={{ "--orb": "min(84vw, 640px, calc(100svh - 10rem))", width: "var(--orb)" } as React.CSSProperties}>
             {/* orbit rings */}
             <div aria-hidden className="absolute inset-0 rounded-full border border-ink/10" />
             <div aria-hidden className="absolute inset-[14%] rounded-full border border-dashed border-ink/10 [animation:spin-slow_60s_linear_infinite]" />
@@ -54,16 +54,18 @@ export default function Services() {
                   <div
                     key={sv.title}
                     className="absolute left-1/2 top-1/2"
-                    style={{ transform: `rotate(${angle}deg) translateY(calc(-1 * min(42vw, 320px))) rotate(${-angle}deg)` }}
+                    style={{ transform: `rotate(${angle}deg) translateY(calc(var(--orb) * -0.5)) rotate(${-angle}deg)` }}
                   >
                     {/* keep each bubble upright while the ring turns */}
                     <motion.div style={{ rotate: counterRot }} className="-translate-x-1/2 -translate-y-1/2">
                       <div
-                        className={`overflow-hidden rounded-full shadow-xl transition-all duration-500 ${
-                          on ? "h-16 w-16 ring-4 ring-accent/30 sm:h-28 sm:w-28" : "h-10 w-10 opacity-60 grayscale sm:h-16 sm:w-16"
+                        className={`grid place-items-center rounded-full bg-white ring-1 ring-black/5 transition-all duration-500 ${
+                          on
+                            ? "h-16 w-16 shadow-[0_18px_40px_-14px_rgba(21,24,30,0.45)] ring-4 ring-accent/20 sm:h-24 sm:w-24"
+                            : "h-10 w-10 opacity-70 shadow-lg grayscale sm:h-14 sm:w-14"
                         }`}
                       >
-                        <Art kind={sv.art} src={sv.image} alt={sv.title} />
+                        <TechLogo name={SERVICE_LOGOS[i]} className={on ? "h-8 w-8 sm:h-12 sm:w-12" : "h-5 w-5 sm:h-7 sm:w-7"} />
                       </div>
                       <p
                         className={`mt-2 whitespace-nowrap text-center font-mono text-[10px] uppercase tracking-[0.14em] transition-opacity ${
@@ -95,7 +97,8 @@ export default function Services() {
                   <p className="mx-auto mt-3 max-w-[30ch] text-sm leading-relaxed text-ink/65">{s.text}</p>
                   <div className="mx-auto mt-4 hidden max-w-[34ch] sm:flex flex-wrap justify-center gap-1.5">
                     {s.tags.map((t) => (
-                      <span key={t} className="rounded-full border border-ink/10 px-2.5 py-1 text-[10px] font-medium">
+                      <span key={t} className="inline-flex items-center gap-1.5 rounded-full border border-ink/10 bg-white/70 px-2.5 py-1 text-[10px] font-medium">
+                        <TechLogo name={t} className="h-3 w-3" />
                         {t}
                       </span>
                     ))}
