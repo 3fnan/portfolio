@@ -168,23 +168,25 @@ export default function Hero() {
           <motion.a
             {...up(1.1, R)}
             href="#contact"
-            className="group flex w-full max-w-[300px] items-center gap-3 bg-ink p-2.5 pr-3 text-white sm:w-[300px]"
+            className="group flex w-fit items-center gap-3 rounded-full bg-ink/90 p-2 pr-2 text-white shadow-[0_20px_45px_-15px_rgba(5,12,28,0.6)] ring-1 ring-white/10 backdrop-blur-md transition-transform duration-500 ease-[cubic-bezier(.16,1,.3,1)] hover:-translate-y-1"
           >
-            <span className="h-16 w-16 shrink-0 overflow-hidden bg-accent">
+            {/* round photo with an "available" dot */}
+            <span className="relative h-14 w-14 shrink-0">
               {profile.photo ? (
                 // eslint-disable-next-line @next/next/no-img-element
-                <img src={profile.photo} alt="" className="h-full w-full object-cover object-top" />
+                <img src={profile.photo} alt="" className="h-full w-full rounded-full object-cover object-top ring-2 ring-white/15" />
               ) : (
-                <span className="grid h-full w-full place-items-center font-display font-bold">{profile.initials}</span>
+                <span className="grid h-full w-full place-items-center rounded-full bg-accent font-display font-bold">{profile.initials}</span>
               )}
+              <span className="absolute bottom-0.5 right-0.5 h-3 w-3 rounded-full border-2 border-ink bg-green-400" />
             </span>
-            <span className="flex-1">
-              <span className="block text-[10px] text-white/60">Let&apos;s talk</span>
-              <span className="mt-1 block text-sm font-semibold">{profile.firstName}</span>
+            <span className="pr-2">
+              <span className="block font-mono text-[10px] uppercase tracking-[0.14em] text-white/55">Let&apos;s talk</span>
+              <span className="mt-0.5 block text-sm font-semibold">{profile.firstName}</span>
               <span className="block text-[11px] text-white/60">{profile.role}</span>
             </span>
-            <span className="grid h-8 w-8 place-items-center self-end bg-white text-ink transition group-hover:bg-accent group-hover:text-white">
-              <ArrowUpRight size={16} />
+            <span className="grid h-11 w-11 place-items-center rounded-full bg-white text-ink transition-colors duration-300 group-hover:bg-accent group-hover:text-white">
+              <ArrowUpRight size={18} className="transition-transform duration-300 group-hover:rotate-45" />
             </span>
           </motion.a>
         </div>

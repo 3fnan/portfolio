@@ -3,7 +3,8 @@
 import { useRef, useState } from "react";
 import { AnimatePresence, motion, useMotionValueEvent, useReducedMotion, useScroll, useTransform } from "framer-motion";
 import { services } from "@/data/portfolio";
-import { SERVICE_LOGOS, TechLogo } from "./TechLogo";
+import ServiceIcon from "./ServiceIcons";
+import { TechLogo } from "./TechLogo";
 import ChapterHead from "./ChapterHead";
 
 /**
@@ -65,7 +66,7 @@ export default function Services() {
                             : "h-10 w-10 opacity-70 shadow-lg grayscale sm:h-14 sm:w-14"
                         }`}
                       >
-                        <TechLogo name={SERVICE_LOGOS[i]} className={on ? "h-8 w-8 sm:h-12 sm:w-12" : "h-5 w-5 sm:h-7 sm:w-7"} />
+                        <ServiceIcon index={i} className={on ? "h-11 w-11 sm:h-16 sm:w-16" : "h-7 w-7 sm:h-10 sm:w-10"} />
                       </div>
                       <p
                         className={`mt-2 whitespace-nowrap text-center font-mono text-[10px] uppercase tracking-[0.14em] transition-opacity ${

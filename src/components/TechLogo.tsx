@@ -32,9 +32,6 @@ export const LOGOS: Record<string, { Icon: IconType; color: string }> = {
   "Gemini API": { Icon: SiGooglegemini, color: "#8E75B2" },
 };
 
-/** The headline logo for each skill on the orbit, by service index. */
-export const SERVICE_LOGOS = ["PyTorch", "FastAPI", "React", "Gemini API"];
-
 export function TechLogo({ name, className = "", mono = false }: { name: string; className?: string; mono?: boolean }) {
   const l = LOGOS[name];
   if (!l) return null;
