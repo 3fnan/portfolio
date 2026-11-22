@@ -32,11 +32,11 @@ export default function HireMe() {
           transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
           className="group fixed bottom-5 right-5 z-40 flex items-center gap-3 bg-ink py-2 pl-2 pr-4 text-white shadow-2xl shadow-black/30"
         >
-          <span className="relative grid h-9 w-9 place-items-center bg-orange font-display text-xs font-bold">
+          <span className="relative grid h-9 w-9 place-items-center bg-accent font-display text-xs font-bold">
             {profile.initials}
             <span className="absolute -right-0.5 -top-0.5 h-2.5 w-2.5 rounded-full border-2 border-ink bg-green-400" />
           </span>
-          <span className="text-sm font-semibold">Hire {profile.firstName}</span>
+          <span className="text-sm font-semibold">Contact {profile.firstName}</span>
           <ArrowUpRight size={16} className="transition-transform group-hover:rotate-45" />
         </motion.a>
       )}

@@ -1,7 +1,10 @@
 import type { Art as ArtKind } from "@/data/portfolio";
+import ProjectIllustration, { type IllustrationKind } from "./ProjectIllustration";
+
+const illustrations: ArtKind[] = ["policy", "resume", "flute", "website", "planner"];
 
 /**
- * Generated orange artwork used wherever a real image hasn't been added yet.
+ * Generated accent artwork used wherever a real image hasn't been added yet.
  * Pass `src` to show a real image instead.
  */
 export default function Art({
@@ -19,33 +22,36 @@ export default function Art({
     // eslint-disable-next-line @next/next/no-img-element
     return <img src={src} alt={alt} className={`h-full w-full object-cover ${className}`} />;
   }
+  if (illustrations.includes(kind)) {
+    return <ProjectIllustration kind={kind as IllustrationKind} alt={alt} />;
+  }
   return (
     <div
       role="img"
       aria-label={alt}
       className={`relative h-full w-full overflow-hidden ${className}`}
-      style={{ background: "linear-gradient(160deg,#f6894f 0%,#e4572e 55%,#b93a16 100%)" }}
+      style={{ background: "linear-gradient(160deg,#3b5d99 0%,#1e3a6e 55%,#0f2148 100%)" }}
     >
-      <div className="absolute inset-x-0 bottom-0 h-[18%] bg-gradient-to-b from-[#d24a22] to-[#a8320f]" />
+      <div className="absolute inset-x-0 bottom-0 h-[18%] bg-gradient-to-b from-[#1a3463] to-[#0f2148]" />
       <svg viewBox="0 0 200 200" className="absolute inset-0 h-full w-full" preserveAspectRatio="xMidYMid slice">
         <defs>
           <radialGradient id={`g-${kind}`} cx="35%" cy="30%" r="75%">
-            <stop offset="0%" stopColor="#fff7ef" />
-            <stop offset="55%" stopColor="#f3d9c6" />
-            <stop offset="100%" stopColor="#c98a68" />
+            <stop offset="0%" stopColor="#f6f8fb" />
+            <stop offset="55%" stopColor="#d6dde8" />
+            <stop offset="100%" stopColor="#8796ad" />
           </radialGradient>
         </defs>
         {kind === "ring" && (
           <>
-            <ellipse cx="100" cy="162" rx="46" ry="7" fill="#9c2e0d" opacity=".45" />
+            <ellipse cx="100" cy="162" rx="46" ry="7" fill="#0b1a3a" opacity=".45" />
             <circle cx="100" cy="110" r="44" fill="none" stroke={`url(#g-${kind})`} strokeWidth="20" />
             <path d="M100 58 C 92 40, 112 30, 102 10" stroke="#fff" strokeOpacity=".5" strokeWidth="3" fill="none" />
           </>
         )}
         {kind === "sphere" && (
           <>
-            <path d="M0 200 L 120 60 L 200 60 L 200 200 Z" fill="#c13d16" opacity=".55" />
-            <ellipse cx="96" cy="160" rx="40" ry="7" fill="#8d2a0b" opacity=".5" />
+            <path d="M0 200 L 120 60 L 200 60 L 200 200 Z" fill="#2a4a85" opacity=".55" />
+            <ellipse cx="96" cy="160" rx="40" ry="7" fill="#0b1a3a" opacity=".5" />
             <circle cx="96" cy="122" r="38" fill={`url(#g-${kind})`} />
           </>
         )}
@@ -73,7 +79,7 @@ export default function Art({
             {[0, 1, 2].map((i) => (
               <g key={i} transform={`translate(0 ${-i * 26})`}>
                 <path d="M100 128 L150 110 L100 92 L50 110 Z" fill={i === 2 ? `url(#g-${kind})` : "#fff"} opacity={i === 2 ? 1 : 0.25 + i * 0.15} />
-                <path d="M50 110 L50 118 L100 136 L150 118 L150 110 L100 128 Z" fill="#8d2a0b" opacity=".35" />
+                <path d="M50 110 L50 118 L100 136 L150 118 L150 110 L100 128 Z" fill="#0b1a3a" opacity=".35" />
               </g>
             ))}
           </g>

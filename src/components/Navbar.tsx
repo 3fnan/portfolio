@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { FaGithub, FaLinkedinIn } from "react-icons/fa";
 import { navLinks, profile } from "@/data/portfolio";
+import RollText from "./RollText";
 
 type LenisLike = { stop(): void; start(): void };
 const lenis = () => (window as unknown as { __lenis?: LenisLike }).__lenis;
@@ -43,9 +44,8 @@ export default function Navbar({ base = "", solid = false }: { base?: string; so
           <ul className="hidden items-center gap-14 text-sm md:flex">
             {short.map((l) => (
               <li key={l.href}>
-                <a href={l.href} className="group relative">
-                  {l.label}
-                  <span className="absolute -bottom-1 left-0 h-px w-0 bg-current transition-all duration-300 group-hover:w-full" />
+                <a href={l.href} className="roll-host relative">
+                  <RollText text={l.label} />
                 </a>
               </li>
             ))}
@@ -54,11 +54,11 @@ export default function Navbar({ base = "", solid = false }: { base?: string; so
             <a
               href={profile.resume}
               target="_blank"
-              className={`hidden border px-4 py-2 text-xs font-semibold uppercase tracking-wide transition sm:block ${
-                scrolled ? "border-ink hover:bg-ink hover:text-white" : "border-white/70 hover:bg-white hover:text-orange"
+              className={`roll-host hidden border px-4 py-2 text-xs font-semibold uppercase tracking-wide transition sm:block ${
+                scrolled ? "border-ink hover:bg-ink hover:text-white" : "border-white/70 hover:bg-white hover:text-accent"
               }`}
             >
-              Resume ↓
+              <RollText text="Resume ↓" />
             </a>
             <button aria-label="Open menu" onClick={() => setOpen(true)} className="flex h-8 w-9 flex-col justify-center gap-[7px]">
               <span className="block h-[2px] w-full bg-current" />
@@ -71,7 +71,7 @@ export default function Navbar({ base = "", solid = false }: { base?: string; so
       <AnimatePresence>
         {open && (
           <motion.div
-            className="fixed inset-0 z-50 overflow-y-auto bg-[#0c0909] text-white"
+            className="fixed inset-0 z-50 overflow-y-auto bg-[#0f1218] text-white"
             initial={{ clipPath: "inset(0 0 100% 0)" }}
             animate={{ clipPath: "inset(0 0 0% 0)" }}
             exit={{ clipPath: "inset(0 0 100% 0)" }}
@@ -100,7 +100,7 @@ export default function Navbar({ base = "", solid = false }: { base?: string; so
                       animate={{ y: 0 }}
                       transition={{ delay: 0.35 + i * 0.06, duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
                     >
-                      <span className="display text-[clamp(2.5rem,7vw,5rem)] transition-colors duration-300 group-hover:text-orange">
+                      <span className="display text-[clamp(2.5rem,7vw,5rem)] transition-colors duration-300 group-hover:text-accent-soft">
                         {l.label}
                       </span>
                       <span className="text-3xl font-light transition-transform duration-300 group-hover:rotate-90">+</span>
@@ -132,7 +132,7 @@ export default function Navbar({ base = "", solid = false }: { base?: string; so
                 </div>
                 <div className="flex gap-3">
                   {[{ I: FaGithub, h: profile.socials.github, l: "GitHub" }, { I: FaLinkedinIn, h: profile.socials.linkedin, l: "LinkedIn" }].map(({ I, h, l }) => (
-                    <a key={l} aria-label={l} href={h} target="_blank" className="grid h-10 w-10 place-items-center rounded-full border border-white/20 transition hover:bg-orange hover:border-orange">
+                    <a key={l} aria-label={l} href={h} target="_blank" className="grid h-10 w-10 place-items-center rounded-full border border-white/20 transition hover:bg-accent hover:border-accent">
                       <I size={16} />
                     </a>
                   ))}

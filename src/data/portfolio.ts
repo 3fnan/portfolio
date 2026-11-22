@@ -1,56 +1,69 @@
 // ─────────────────────────────────────────────────────────────
 //  All site content lives here. Edit this file to update the site.
 //  Images: drop files into /public and set the matching `image` path.
-//  Leave an `image` empty ("") to show the generated orange artwork.
+//  Leave an `image` empty ("") to show the generated accent artwork.
 // ─────────────────────────────────────────────────────────────
 
 export const profile = {
   name: "Afnan Abdul Rahiman",
   firstName: "Afnan",
-  brand: "Afnan",
+  brand: "3fnan",
   initials: "AA",
-  role: "AI/ML Engineer",
-  roleLong: "AI/ML & Python Backend Engineer",
-  location: "Calicut, Kerala, India",
-  // Unique value proposition: what you do + proof + who it's for
+  role: "AI Developer",
+  roleLong: "AI/ML & Python Developer",
+  location: "Calicut · Kannur · Mangalore, India",
+  // Short intro: who you are + what you're doing right now
   heroIntro: "AI/ML & backend engineer who turns models into production-ready products",
   valueProp:
-    "Fresh graduate, already shipping: production APIs for a cybersecurity platform, a live site for a paying client, and AI products built end to end.",
+    "I'm at the start of my journey. So far that means a few internships, one website for a small client, and personal AI projects I built to learn.",
   summary:
-    "B.E. Computer Science graduate specializing in AI/ML, with hands-on experience in Python backend, REST APIs and full-stack development. I've built production systems with FastAPI, PostgreSQL, React and Django, and worked on deep learning, computer vision and Generative AI.",
+    "I studied Computer Science with a focus on AI & ML. Through internships and projects I've worked with Python, FastAPI, Django, PostgreSQL and React, and explored deep learning, computer vision and generative AI. I'm open to opportunities where I can keep learning and contribute to a good team.",
   email: "afnanabdulrahiman.aa@gmail.com",
   phone: "+91 93834 66313",
+  // WhatsApp number: country code + number, digits only (used for wa.me links)
+  whatsapp: "919383466313",
+  whatsappMessage: "Hi Afnan, I came across your portfolio and would like to connect.",
   resume: "/resume.pdf",
   // Your portrait. A PNG with the background removed looks best in the hero.
   // Save it as public/profile.png and set photo: "/profile.png".
-  photo: "" as string,
+  photo: "/me.WEBP" as string,
   // Wide lifestyle/workspace photo for the big scroll-to-zoom block, e.g. "/showcase.jpg"
-  showcaseImage: "" as string,
+  showcaseImage: "/ride.webp" as string,
   socials: {
     github: "https://github.com/3fnan",
     linkedin: "https://linkedin.com/in/afnanabdulrahiman",
   },
-  lookingFor: "Open to AI/ML, Python backend & software engineering roles",
-  availability: "Available now · Full-time & freelance",
+  lookingFor: "Open to new opportunities in AI/ML, Python backend and software development",
+  availability: "Open to opportunities",
 };
 
-// "Recruiter quick view": the facts a hiring manager scans for in 10 seconds
-export const quickFacts = [
-  { label: "Roles", value: "AI/ML Engineer · Backend Engineer · SWE" },
-  { label: "Degree", value: "B.E. CSE (AI & ML), 2026" },
-  { label: "Core stack", value: "Python · FastAPI · Django · PostgreSQL · React" },
-  { label: "AI", value: "PyTorch · TensorFlow · LLM APIs · Oracle GenAI certified" },
-  { label: "Based in", value: "Calicut, Kerala, India" },
-  { label: "Status", value: "Available now" },
-];
+// "My story so far": told like a personal file (letter, record, on file)
+export const storyFile = {
+  stampImage: "/ride.webp", // small "stamp" photo next to the letter
+  meta: [
+    { k: "FILE", v: "N°01" },
+    { k: "EST", v: "2022" },
+    { k: "BASED", v: "CALICUT · KANNUR · MANGALORE" },
+    { k: "STATUS", v: "OPEN" },
+  ],
+  greeting: "Hey, you found my file.",
+  letter: [
+    "I'm Afnan, a computer science student from Calicut, Kerala. I started my degree at Sahyadri College in 2022 because I wanted to understand how machines learn. Lectures only took me so far, so I started building.",
+    "My first real project, Hummello, turned humming into bansuri flute audio. Then came the internships: at TrueByte Innovation I worked on the backend of their product, CVETrack.ai; at Blend-ed I learned Django through Harvard's CS50 Web; and now I'm doing research at XandY Learning. Somewhere in between, I built my first website for a client in the UAE.",
+    "I'm still early in this, and I like it that way. I'm open to opportunities where I can keep learning, ask good questions and build useful things with a good team.",
+  ],
+  signOff: "Afnan",
+  // words that light up in the accent colour as the letter plays
+  highlights: ["Afnan", "Sahyadri", "Hummello", "bansuri", "CVETrack.ai", "TrueByte", "Blend-ed", "CS50", "XandY", "UAE", "learning"],
+};
 
 // Options in the contact form; the choice goes into the email subject
-export const enquiryTypes = ["Full-time role", "Internship", "Freelance project", "Just saying hi"];
+export const enquiryTypes = ["Job opportunity", "Project or collaboration", "Freelance work", "Just saying hi"];
 
 export const navLinks = [
   { href: "#top", label: "Home" },
   { href: "#about", label: "About" },
-  { href: "#services", label: "Services" },
+  { href: "#services", label: "What I do" },
   { href: "#work", label: "Work" },
   { href: "#experience", label: "Experience" },
   { href: "#contact", label: "Contact" },
@@ -61,6 +74,7 @@ export const brands = [
   "XandY Learning",
   "TrueByte Innovation",
   "Blend-ed",
+  "Harvard CS50",
   "Oracle",
   "Infosys Springboard",
   "Sahyadri College",
@@ -70,14 +84,14 @@ export const stats = [
   {
     value: 15,
     suffix: "+",
-    label: "REST APIs shipped",
-    text: "Production CRUD APIs with pagination, RBAC and error handling.",
+    label: "APIs built",
+    text: "CRUD APIs I worked on during my internship at TrueByte.",
   },
   {
     value: 3,
     suffix: "",
     label: "Internships",
-    text: "Backend, full-stack and research roles across EdTech and cybersecurity.",
+    text: "Short internships in EdTech and cybersecurity, learning on real codebases.",
   },
 ];
 
@@ -89,33 +103,34 @@ export type Service = {
   art: Art;
 };
 
-export type Art = "ring" | "sphere" | "grid" | "wave" | "stack";
+// Abstract shapes (services) + project illustrations (see ProjectIllustration.tsx)
+export type Art = "ring" | "sphere" | "grid" | "wave" | "stack" | "policy" | "resume" | "flute" | "website" | "planner";
 
 export const services: Service[] = [
   {
     title: "AI/ML & Deep Learning",
-    text: "Training and shipping models for audio, vision and language, from data pipeline to demo.",
+    text: "Training models for audio, images and text in academic and personal projects.",
     tags: ["PyTorch", "TensorFlow / Keras", "Computer Vision", "NLP", "scikit-learn"],
     image: "",
     art: "wave",
   },
   {
-    title: "Backend Engineering",
-    text: "Clean, well-modelled APIs and databases that hold up in production.",
+    title: "Backend Development",
+    text: "Building REST APIs and database schemas in Python, the area I've worked in most.",
     tags: ["FastAPI", "Django / DRF", "PostgreSQL", "REST APIs", "Docker"],
     image: "",
     art: "stack",
   },
   {
     title: "Full-stack Web",
-    text: "Responsive, typed web apps and sites, deployed on custom domains.",
+    text: "Building responsive websites and simple web apps with React and Next.js.",
     tags: ["Next.js", "React", "TypeScript", "Tailwind CSS"],
     image: "",
     art: "grid",
   },
   {
     title: "Generative AI & LLM Apps",
-    text: "LLM-powered features with structured outputs, from resume analysis to assistants.",
+    text: "Experimenting with LLM APIs in small projects, like a resume feedback tool.",
     tags: ["Gemini API", "LLM APIs", "Prompt design", "Oracle GenAI certified"],
     image: "",
     art: "sphere",
@@ -149,78 +164,43 @@ export type Project = {
   learnings: string[];
 };
 
-// Ordered by impact: the first one is featured in the hero.
+// Ordered by impact: the first one is featured in the hero. My own projects come first;
+// the TrueByte internship (work on their product, CVETrack.ai) is listed last.
 // Everything here comes from the resume. Add real links, screenshots and learnings.
 export const projects: Project[] = [
-  {
-    slug: "cvetrack-policy-engine",
-    title: "CVETrack.ai",
-    category: "Backend",
-    year: "2026",
-    tagline: "A recursive policy engine for an AI-powered cybersecurity platform.",
-    description:
-      "Rule-based policy engine with nested AND/OR groups, a normalized PostgreSQL schema and 15+ REST APIs, wired to a React UI.",
-    role: "Backend engineer (full-stack internship)",
-    timeline: "Jan – Apr 2026 · 4 months",
-    context: "Internship · TrueByte Innovation LLP",
-    stack: ["FastAPI", "PostgreSQL", "React", "TypeScript", "REST"],
-    image: "",
-    art: "stack",
-    problem:
-      "Security teams need to express rules like “block packages with a critical CVE AND (license is GPL OR maintainer unknown)”, then see why a policy passed or failed. Flat rule lists can't express nested logic, and results have to stay consistent as policies change.",
-    approach: [
-      { title: "Model nested logic", text: "Designed policies as trees of rule groups joined by AND/OR, evaluated recursively so groups can nest to any depth." },
-      { title: "Design the schema", text: "Architected a 5-table normalized PostgreSQL schema for policies, rule groups, rules, conditions and evaluation history, keeping data integrity across policy operations." },
-      { title: "Ship the APIs", text: "Built 15+ RESTful CRUD APIs for Package, License and Vulnerability services with pagination, role-based access control and error handling." },
-      { title: "Close the loop in the UI", text: "Developed a React/TypeScript policy UI for creating rule groups, browsing evaluation history and handling API errors." },
-    ],
-    architecture: ["React policy UI", "FastAPI services", "Recursive evaluator", "PostgreSQL (5 tables)", "Evaluation history"],
-    results: [
-      { value: "15+", label: "REST APIs shipped" },
-      { value: "5", label: "Normalized tables" },
-      { value: "AND/OR", label: "Nested rule groups, evaluated recursively" },
-    ],
-    highlights: [
-      "Recursive group evaluation for arbitrarily nested AND/OR expressions",
-      "Role-based access control and pagination across services",
-      "UI–backend synchronization with consistent error handling",
-    ],
-    learnings: [],
-  },
   {
     slug: "resumeiq-ai",
     title: "ResumeIQ AI",
     category: "AI",
     year: "2026",
-    tagline: "AI resume analysis with ATS scoring, skill gaps and job matching.",
+    tagline: "A personal project that uses AI to give feedback on resumes.",
     description:
-      "Full-stack AI platform: server-side PDF pipeline with Gemini 2.5 Flash, typed JSON contracts and Playwright-tested dashboards.",
-    role: "Solo: design, build and test",
+      "Next.js app that reads a PDF resume and uses Gemini to give an ATS-style score, missing skills and a job-match check.",
+    role: "Solo personal project",
     timeline: "2026",
     context: "Personal project",
     stack: ["Next.js", "TypeScript", "Tailwind CSS", "Gemini API", "pdf-parse", "Playwright"],
     github: "https://github.com/3fnan",
-    live: "",
-    image: "",
-    art: "ring",
+    live: "https://resume-ai-iq.vercel.app/",
+    image: "/projects/resumeiq.webp",
+    art: "resume",
     problem:
       "Job seekers rarely know why a resume gets filtered out. Generic feedback doesn't help; they need a score, the missing skills, and how well the resume matches a specific job description.",
     approach: [
-      { title: "Parse on the server", text: "Engineered a server-side PDF pipeline with pdf-parse so uploads are processed securely and consistently." },
-      { title: "Structure the AI output", text: "Used Gemini 2.5 Flash for ATS scoring, skill-gap analysis and JD matching, constrained by typed JSON contracts so the UI never receives malformed data." },
-      { title: "Make it readable", text: "Built an interactive dashboard with score visualizations and print-optimized reports." },
-      { title: "Test end to end", text: "Covered the critical flows with Playwright end-to-end tests." },
+      { title: "Read the PDF", text: "Used pdf-parse on the server to pull the text out of uploaded resumes." },
+      { title: "Ask the AI", text: "Sent the text to Gemini 2.5 Flash for an ATS score, skill gaps and job-description matching, asking for JSON in a fixed format so the UI could display it reliably." },
+      { title: "Show the results", text: "Built a dashboard with simple score charts and a printable report." },
+      { title: "Test it", text: "Wrote a few Playwright tests for the main flows." },
     ],
-    architecture: ["PDF upload", "pdf-parse (server)", "Gemini 2.5 Flash", "Typed JSON contract", "Dashboard & report"],
+    architecture: ["PDF upload", "pdf-parse (server)", "Gemini 2.5 Flash", "JSON response", "Dashboard & report"],
     results: [
-      { value: "3", label: "Analyses: ATS, skill gap, JD match" },
-      { value: "E2E", label: "Playwright-tested flows" },
-      { value: "Typed", label: "JSON contracts for every AI response" },
+      { value: "3", label: "Checks: ATS score, skill gap, job match" },
+      { value: "E2E", label: "Main flows tested with Playwright" },
     ],
     highlights: [
-      "Typed contracts between the LLM and the UI",
-      "Print-optimized reports",
-      "End-to-end tests with Playwright",
+      "Learned to get structured JSON out of an LLM",
+      "Printable reports",
+      "My first time writing end-to-end tests",
     ],
     learnings: [],
   },
@@ -231,13 +211,13 @@ export const projects: Project[] = [
     year: "2025",
     tagline: "Hum a melody, hear it played back as a bansuri flute.",
     description:
-      "Deep learning pipeline turning raw humming into bansuri-like audio with DSP features and a Transformer autoencoder.",
-    role: "ML engineer",
+      "College project that turns humming into bansuri-like audio using pitch features and a Transformer autoencoder.",
+    role: "Student (academic project)",
     timeline: "2025",
     context: "Academic project",
     stack: ["Python", "TensorFlow", "Keras", "Librosa", "pyWORLD", "Streamlit"],
     image: "",
-    art: "wave",
+    art: "flute",
     problem:
       "Most people can hum a tune but can't play an instrument. Turning untrained humming into expressive instrument audio needs accurate pitch tracking and a model that maps voice features to instrument timbre.",
     approach: [
@@ -249,10 +229,10 @@ export const projects: Project[] = [
     results: [
       { value: "434.2 Hz", label: "Mean extracted pitch" },
       { value: "437.6 Hz", label: "Reference pitch" },
-      { value: "99.2%", label: "Pitch agreement" },
+      { value: "99.2%", label: "Pitch match on our test audio" },
     ],
     highlights: [
-      "End-to-end DSP + deep learning pipeline",
+      "Combined audio processing with deep learning",
       "Mel-spectrogram comparison in the UI",
     ],
     learnings: [],
@@ -262,30 +242,29 @@ export const projects: Project[] = [
     title: "Al Fan Al Aniq",
     category: "Client Web",
     year: "2026",
-    tagline: "A complete, live corporate website for a UAE technical services firm.",
+    tagline: "A website I built for a small technical services company in the UAE.",
     description:
-      "Responsive corporate site with reusable, data-driven sections, deployed on the client's custom domain.",
-    role: "Freelance developer: design to deployment",
+      "Responsive company website with reusable sections, put live on the client's own domain.",
+    role: "Freelance web developer",
     timeline: "2026",
     context: "Client project · UAE",
     stack: ["Next.js", "React", "TypeScript", "Tailwind CSS"],
-    live: "",
-    image: "",
-    art: "grid",
+    live: "https://www.alfanalaniq.ae",
+    image: "/projects/alfan.webp",
+    art: "website",
     problem:
-      "A growing technical services company needed a credible web presence to show its services, projects and clients, and a site its team could keep updated.",
+      "A technical services company needed a simple website to show its services, projects and clients, one that would be easy to update later.",
     approach: [
-      { title: "Design around content", text: "Built reusable sections for services, projects, clients and company info." },
-      { title: "Keep it editable", text: "Drove every section from data so content changes don't require layout work." },
-      { title: "Ship to production", text: "Configured the custom domain and production hosting, delivering a complete live website." },
+      { title: "Plan the pages", text: "Made reusable sections for services, projects, clients and company info." },
+      { title: "Keep it easy to edit", text: "Kept the content in data files so text can change without touching the layout." },
+      { title: "Put it online", text: "Set up hosting and connected the client's domain." },
     ],
-    architecture: ["Content data", "Reusable sections", "Next.js build", "Production hosting", "Custom domain"],
+    architecture: ["Content data", "Reusable sections", "Next.js build", "Hosting", "Custom domain"],
     results: [
-      { value: "Live", label: "Delivered to a real client" },
-      { value: "Responsive", label: "Every section, every screen size" },
-      { value: "1", label: "Custom-domain deployment" },
+      { value: "Live", label: "Website online for the client" },
+      { value: "Responsive", label: "Works on phone and desktop" },
     ],
-    highlights: ["Real client, real deadline", "Data-driven, reusable sections"],
+    highlights: ["Worked with a real client on their requirements", "Reusable, data-driven sections"],
     learnings: [],
   },
   {
@@ -295,14 +274,14 @@ export const projects: Project[] = [
     year: "2026",
     tagline: "One place for long-term goals, daily tasks and schedules.",
     description:
-      "Django productivity platform for goals, tasks, reminders, schedules and learning. In active development.",
+      "A Django app I'm building for my own goals, tasks, reminders and schedules. Still a work in progress.",
     role: "Solo developer",
     timeline: "2026 · in progress",
     context: "Personal project",
     stack: ["Python", "Django", "PostgreSQL", "SQLite", "JavaScript"],
     github: "https://github.com/3fnan",
     image: "",
-    art: "sphere",
+    art: "planner",
     problem:
       "Goals, tasks, reminders and learning usually live in separate apps, so long-term goals lose touch with what gets done each day.",
     approach: [
@@ -312,10 +291,45 @@ export const projects: Project[] = [
     ],
     architecture: ["User", "Django views & auth", "Goal / task models", "PostgreSQL", "Responsive UI"],
     results: [
-      { value: "WIP", label: "Actively developing" },
+      { value: "WIP", label: "Still building" },
       { value: "4", label: "Core modules: goals, tasks, reminders, schedule" },
     ],
     highlights: ["Django ORM relationships", "Auth and scheduling"],
+    learnings: [],
+  },
+  {
+    slug: "cvetrack-policy-engine",
+    title: "TrueByte Internship",
+    category: "Internship",
+    year: "2026",
+    tagline: "My internship work on CVETrack.ai, TrueByte Innovation's cybersecurity product.",
+    description:
+      "As an intern at TrueByte Innovation LLP, I worked on the policy engine of their product CVETrack.ai: nested AND/OR rules, a PostgreSQL schema, CRUD APIs and parts of the React UI.",
+    role: "Software engineer intern (mostly backend). CVETrack.ai is TrueByte's product; I contributed to it.",
+    timeline: "Jan – Apr 2026 · 4 months",
+    context: "Internship · TrueByte Innovation LLP",
+    stack: ["FastAPI", "PostgreSQL", "React", "TypeScript", "REST"],
+    image: "",
+    art: "policy",
+    problem:
+      "CVETrack.ai is a cybersecurity product built by TrueByte Innovation LLP. Its users need to write rules like “block packages with a critical CVE AND (license is GPL OR maintainer unknown)” and see why a policy passed or failed. During my internship I worked on the policy engine that makes this possible.",
+    approach: [
+      { title: "Model nested logic", text: "Helped build policies as trees of rule groups joined by AND/OR, evaluated recursively so groups can nest to any depth." },
+      { title: "Design the schema", text: "Designed the 5-table PostgreSQL schema for the policy engine: policies, rule groups, rules, conditions and evaluation history." },
+      { title: "Build the APIs", text: "Wrote 15+ CRUD APIs for CVETrack.ai's Package, License and Vulnerability services, with pagination, role-based access and error handling." },
+      { title: "Connect the UI", text: "Worked on a React/TypeScript screen for creating rule groups and viewing evaluation history." },
+    ],
+    architecture: ["React policy UI", "FastAPI services", "Recursive evaluator", "PostgreSQL (5 tables)", "Evaluation history"],
+    results: [
+      { value: "15+", label: "APIs I worked on" },
+      { value: "5", label: "Database tables" },
+      { value: "AND/OR", label: "Nested rule groups" },
+    ],
+    highlights: [
+      "First time working on recursive logic in a real codebase",
+      "Learned role-based access control and pagination",
+      "Worked across both backend and frontend",
+    ],
     learnings: [],
   },
 ];
@@ -348,11 +362,11 @@ export const experience: Experience[] = [
     company: "TrueByte Innovation",
     location: "Bengaluru",
     period: "Jan 2026 – Apr 2026",
-    summary: "Built the backend for CVETrack.ai, an AI-powered cybersecurity intelligence platform.",
+    summary: "Interned on the backend team of CVETrack.ai, TrueByte's own cybersecurity product.",
     points: [
-      "Rule-based policy engine with nested AND/OR expressions and recursive evaluation.",
-      "5-table normalized PostgreSQL schema and 15+ RESTful CRUD APIs with RBAC.",
-      "React/TypeScript policy UI with evaluation history.",
+      "Helped build a rule engine with nested AND/OR conditions.",
+      "Designed a PostgreSQL schema and wrote CRUD APIs with role-based access.",
+      "Worked on parts of the React/TypeScript UI.",
     ],
   },
   {
@@ -375,21 +389,28 @@ export const education = {
   period: "2022 – 2026",
 };
 
-export const certifications = [
+// The first one is featured on its own card; the rest are listed under it
+export const certifications: { name: string; issuer: string; year: string; url?: string }[] = [
+  {
+    name: "CS50's Web Programming with Python and JavaScript",
+    issuer: "Harvard University (CS50)",
+    year: "2026",
+    url: "https://cs50.harvard.edu/certificates/68a4dd98-cd25-4f04-9791-5be6df6816b1",
+  },
   { name: "OCI 2025 Certified Generative AI Professional", issuer: "Oracle University", year: "2025" },
   { name: "Applied Deep Learning with Keras", issuer: "Infosys Springboard", year: "2025" },
 ];
 
-// "Why work with me" bento
+// "A few highlights" bento
 export const highlights = {
-  apis: { value: 15, suffix: "+", label: "REST APIs", text: "Shipped for Package, License and Vulnerability services at TrueByte." },
+  apis: { value: 15, suffix: "+", label: "APIs", text: "Written during my internship at TrueByte." },
   accuracy: {
     value: 99.2,
     suffix: "%",
-    label: "Pitch accuracy",
-    text: "Hummello's F0 extraction: 434.2 Hz mean pitch vs a 437.6 Hz reference.",
+    label: "Pitch match",
+    text: "From my Hummello college project: 434.2 Hz average pitch vs a 437.6 Hz reference.",
   },
-  schema: { value: 5, suffix: "", label: "Table schema", text: "Normalized PostgreSQL design for the CVETrack.ai policy engine." },
+  schema: { value: 5, suffix: "", label: "DB tables", text: "The PostgreSQL schema I designed for the policy engine in CVETrack.ai, during my TrueByte internship." },
 };
 
 export const skills: { group: string; items: string[] }[] = [

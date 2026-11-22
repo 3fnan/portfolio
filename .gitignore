@@ -4,3 +4,7 @@ out
 next-env.d.ts
 *.tsbuildinfo
 .env*
+
+# original phone photos (often contain GPS location); the site uses the converted .webp copies
+*.HEIC
+*.heic

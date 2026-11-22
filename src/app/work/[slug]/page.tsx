@@ -18,5 +18,12 @@ export default async function Page({ params }: { params: Promise<{ slug: string 
   const { slug } = await params;
   const i = projects.findIndex((x) => x.slug === slug);
   if (i === -1) notFound();
-  return <CaseStudy project={projects[i]} next={projects[(i + 1) % projects.length]} />;
+  return (
+    <>
+      <div aria-hidden className="page-curtain">
+        <span>3fnan::{projects[i].slug}</span>
+      </div>
+      <CaseStudy project={projects[i]} next={projects[(i + 1) % projects.length]} />
+    </>
+  );
 }

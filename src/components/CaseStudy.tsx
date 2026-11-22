@@ -30,11 +30,11 @@ export default function CaseStudy({ project: p, next }: { project: Project; next
 
   return (
     <>
-      <motion.div style={{ scaleX: progress }} className="fixed inset-x-0 top-0 z-[60] h-1 origin-left bg-orange" />
+      <motion.div style={{ scaleX: progress }} className="fixed inset-x-0 top-0 z-[60] h-1 origin-left bg-accent" />
       <Navbar base="/" solid />
       <HireMe />
 
-      <header ref={heroRef} className="bg-orange pt-28 text-white">
+      <header ref={heroRef} className="bg-accent pt-28 text-white">
         <div className="mx-auto max-w-[1400px] px-5 sm:px-10">
           <Link href="/#work" className="inline-flex items-center gap-2 text-sm hover:underline">
             <ArrowLeft size={16} /> All work
@@ -50,7 +50,7 @@ export default function CaseStudy({ project: p, next }: { project: Project; next
             </div>
             <motion.dl initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.8 }} className="grid grid-cols-2 gap-px bg-white/20 text-sm">
               {[["Role", p.role], ["Timeline", p.timeline], ["Category", p.category], ["Stack", p.stack.slice(0, 4).join(", ")]].map(([k, v]) => (
-                <div key={k} className="bg-orange p-4">
+                <div key={k} className="bg-accent p-4">
                   <dt className="text-xs uppercase tracking-wide text-white/60">{k}</dt>
                   <dd className="mt-1 font-medium">{v}</dd>
                 </div>
@@ -72,14 +72,14 @@ export default function CaseStudy({ project: p, next }: { project: Project; next
         <aside className="hidden lg:block">
           <nav className="sticky top-28 space-y-3 text-sm">
             {nav.map((s, i) => (
-              <a key={s.id} href={`#${s.id}`} className="flex items-center gap-3 text-ink/60 transition hover:text-orange">
-                <span className="text-xs text-orange">{String(i + 1).padStart(2, "0")}</span>
+              <a key={s.id} href={`#${s.id}`} className="flex items-center gap-3 text-ink/60 transition hover:text-accent">
+                <span className="text-xs text-accent">{String(i + 1).padStart(2, "0")}</span>
                 {s.label}
               </a>
             ))}
             <div className="space-y-2 border-t border-line pt-6">
-              {p.live && <a href={p.live} target="_blank" className="flex items-center gap-2 font-medium hover:text-orange">Live site <ArrowUpRight size={14} /></a>}
-              {p.github && <a href={p.github} target="_blank" className="flex items-center gap-2 font-medium hover:text-orange"><FaGithub /> Source code</a>}
+              {p.live && <a href={p.live} target="_blank" className="flex items-center gap-2 font-medium hover:text-accent">Live site <ArrowUpRight size={14} /></a>}
+              {p.github && <a href={p.github} target="_blank" className="flex items-center gap-2 font-medium hover:text-accent"><FaGithub /> Source code</a>}
             </div>
           </nav>
         </aside>
@@ -96,7 +96,7 @@ export default function CaseStudy({ project: p, next }: { project: Project; next
               {p.approach.map((s, i) => (
                 <Reveal key={s.title} delay={i * 0.08}>
                   <li className="group h-full bg-card p-7 transition-colors hover:bg-ink hover:text-white">
-                    <span className="display text-5xl text-orange">{String(i + 1).padStart(2, "0")}</span>
+                    <span className="display text-5xl text-accent">{String(i + 1).padStart(2, "0")}</span>
                     <h3 className="mt-6 font-display text-xl font-bold">{s.title}</h3>
                     <p className="mt-2 text-sm leading-relaxed opacity-70">{s.text}</p>
                   </li>
@@ -124,7 +124,7 @@ export default function CaseStudy({ project: p, next }: { project: Project; next
             </div>
             <ul className="mt-8 space-y-3">
               {p.highlights.map((h) => (
-                <li key={h} className="flex gap-3 border-b border-line pb-3"><span className="text-orange">✳</span>{h}</li>
+                <li key={h} className="flex gap-3 border-b border-line pb-3"><span className="text-accent">✳</span>{h}</li>
               ))}
             </ul>
             <div className="mt-8 flex flex-wrap gap-2">
@@ -149,7 +149,7 @@ export default function CaseStudy({ project: p, next }: { project: Project; next
                 <p className="mt-2 text-white/60">{profile.availability}</p>
               </div>
               <div className="flex flex-wrap gap-3">
-                <Link href="/#contact" className="inline-flex items-center gap-2 bg-orange px-5 py-3 text-sm font-semibold">Hire me <ArrowUpRight size={16} /></Link>
+                <Link href="/#contact" className="inline-flex items-center gap-2 bg-accent px-5 py-3 text-sm font-semibold">Hire me <ArrowUpRight size={16} /></Link>
                 <a href={profile.resume} target="_blank" className="inline-flex items-center gap-2 border border-white/25 px-5 py-3 text-sm font-semibold"><Download size={16} /> Resume</a>
               </div>
             </div>
@@ -157,7 +157,7 @@ export default function CaseStudy({ project: p, next }: { project: Project; next
         </div>
       </main>
 
-      <Link href={`/work/${next.slug}`} className="group block bg-orange text-white">
+      <Link href={`/work/${next.slug}`} className="group block bg-accent text-white">
         <div className="mx-auto flex max-w-[1400px] items-end justify-between gap-6 px-5 py-16 sm:px-10">
           <div>
             <p className="text-sm uppercase tracking-wide text-white/70">Next case study</p>
@@ -184,8 +184,8 @@ function Flow({ steps }: { steps: string[] }) {
           variants={{ hidden: {}, show: {} }}>
           <motion.div
             variants={{
-              hidden: { opacity: 0.25, y: 12, backgroundColor: "#ffffff", color: "#0e0e0e" },
-              show: { opacity: 1, y: 0, backgroundColor: i === steps.length - 1 ? "#e4572e" : "#0e0e0e", color: "#ffffff",
+              hidden: { opacity: 0.25, y: 12, backgroundColor: "#ffffff", color: "#15181e" },
+              show: { opacity: 1, y: 0, backgroundColor: i === steps.length - 1 ? "#1e3a6e" : "#15181e", color: "#ffffff",
                 transition: { delay: i * 0.35, duration: 0.5 } },
             }}
             className="w-full flex-1 p-5 text-center text-sm font-semibold"
@@ -197,7 +197,7 @@ function Flow({ steps }: { steps: string[] }) {
             <motion.span
               aria-hidden
               variants={{ hidden: { opacity: 0 }, show: { opacity: 1, transition: { delay: i * 0.35 + 0.25 } } }}
-              className="text-xl text-orange md:-mx-1"
+              className="text-xl text-accent md:-mx-1"
             >
               <span className="md:hidden">↓</span>
               <span className="hidden md:inline">→</span>

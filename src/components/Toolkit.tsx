@@ -1,39 +1,52 @@
-import { profile, skills } from "@/data/portfolio";
-import BlurText from "./BlurText";
-import Marquee from "./Marquee";
-import Reveal from "./Reveal";
-import Tag from "./Tag";
+"use client";
+
+import { useRef } from "react";
+import { motion, useScroll, useTransform } from "framer-motion";
+import { skills } from "@/data/portfolio";
+import ChapterHead from "./ChapterHead";
+
+/**
+ * The toolkit as pure type, no cards: each group is one big line that slides sideways
+ * as you scroll (alternating directions). Hovering a tool lights it up.
+ */
+function Row({ group, items, i, p }: { group: string; items: string[]; i: number; p: ReturnType<typeof useScroll>["scrollYProgress"] }) {
+  const dir = i % 2 === 0 ? -1 : 1;
+  const x = useTransform(p, [0, 1], [`${dir * -6}%`, `${dir * 6}%`]);
+  return (
+    <div className="grid items-baseline gap-2 border-b border-line py-6 md:grid-cols-[180px_1fr] md:gap-10">
+      <p className="font-mono text-[11px] uppercase tracking-[0.16em] text-ink/45">
+        <span className="text-accent">{String(i + 1).padStart(2, "0")}</span> {group}
+      </p>
+      <div className="overflow-hidden">
+        <motion.p style={{ x }} className="whitespace-nowrap font-display text-[clamp(1.8rem,4.6vw,4rem)] font-bold uppercase leading-none tracking-tight">
+          {items.map((t, k) => (
+            <span key={t}>
+              <span className="cursor-default text-ink/25 transition-colors duration-300 hover:text-accent">{t}</span>
+              {k < items.length - 1 && <span className="mx-[0.35em] text-ink/15">/</span>}
+            </span>
+          ))}
+        </motion.p>
+      </div>
+    </div>
+  );
+}
 
 export default function Toolkit() {
+  const ref = useRef<HTMLDivElement>(null);
+  const { scrollYProgress } = useScroll({ target: ref, offset: ["start end", "end start"] });
   return (
-    <section className="py-28">
-      <div className="mx-auto grid max-w-[1400px] gap-8 px-5 sm:px-10 md:grid-cols-2 md:items-end">
-        <div>
-          <Reveal><Tag>Tools I trust</Tag></Reveal>
-          <BlurText text="My | toolkit" className="display mt-5 text-[clamp(2.6rem,6vw,5rem)]" />
-        </div>
-        <Reveal>
-          <p className="max-w-sm text-xs font-semibold uppercase leading-relaxed md:ml-auto md:text-right">
-            {profile.lookingFor}. Here&apos;s the stack I work in every day.
-          </p>
-        </Reveal>
-      </div>
-
-      <Marquee duration={45} className="mt-14" gap="0.75rem">
-        {skills.map((g) => (
-          <div key={g.group} className="flex w-72 shrink-0 flex-col bg-card p-6">
-            <div className="flex items-center justify-between">
-              <span className="font-display text-sm font-bold uppercase">{g.group}</span>
-              <span className="text-orange">+</span>
-            </div>
-            <div className="mt-10 flex flex-wrap gap-1.5">
-              {g.items.map((s) => (
-                <span key={s} className="bg-black/[0.05] px-2.5 py-1.5 text-xs">{s}</span>
-              ))}
-            </div>
-          </div>
+    <section className="mx-auto max-w-[1400px] px-5 py-28 sm:px-10">
+      <ChapterHead
+        n={6}
+        label="Tools I use"
+        title="My | toolkit"
+        lead="And these are the tools that got me here, plus the ones I'm still getting better at."
+      />
+      <div ref={ref} className="mt-16 border-t border-ink">
+        {skills.map((g, i) => (
+          <Row key={g.group} group={g.group} items={g.items} i={i} p={scrollYProgress} />
         ))}
-      </Marquee>
+      </div>
     </section>
   );
 }
