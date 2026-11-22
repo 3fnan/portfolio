@@ -4,7 +4,6 @@ import { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { ArrowUpRight, Download } from "lucide-react";
 import { FaGithub, FaLinkedinIn, FaWhatsapp } from "react-icons/fa";
-import { SiGmail } from "react-icons/si";
 import { enquiryTypes, profile } from "@/data/portfolio";
 import BlurText from "./BlurText";
 import Reveal from "./Reveal";
@@ -47,32 +46,51 @@ export default function Contact() {
             </p>
           </Reveal>
           <Reveal delay={0.08}>
-            <div className="mt-8 grid gap-3 sm:grid-cols-2">
+            {/* round floating buttons: each bobs on its own rhythm, lifts and glows on hover */}
+            <div className="mt-10 flex items-start gap-10">
               <a
                 href={whatsappUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group flex items-center gap-3 bg-[#25D366] px-5 py-4 text-white transition hover:bg-[#1ebe5b]"
+                aria-label="Chat on WhatsApp"
+                className="group flex flex-col items-center gap-3"
               >
-                <FaWhatsapp size={24} />
-                <span className="flex-1">
-                  <span className="block text-sm font-semibold">Chat on WhatsApp</span>
-                  <span className="block text-xs text-white/80">Quickest way to reach me</span>
+                <span className="float-y block" style={{ animationDuration: "4.5s" }}>
+                  <span className="relative grid h-20 w-20 place-items-center rounded-full bg-[#25D366] text-white shadow-[0_18px_35px_-12px_rgba(37,211,102,0.75)] transition-all duration-500 ease-[cubic-bezier(.16,1,.3,1)] group-hover:-translate-y-1.5 group-hover:scale-110 group-hover:shadow-[0_26px_50px_-12px_rgba(37,211,102,0.9)] sm:h-24 sm:w-24">
+                    {/* soft pulse ring */}
+                    <span className="absolute inset-0 animate-ping rounded-full bg-[#25D366] opacity-20 [animation-duration:2.4s]" />
+                    <FaWhatsapp className="relative h-10 w-10 sm:h-11 sm:w-11" />
+                  </span>
                 </span>
-                <ArrowUpRight size={18} className="transition-transform group-hover:rotate-45" />
+                <span className="text-center">
+                  <span className="block text-sm font-semibold">WhatsApp</span>
+                  <span className="block font-mono text-[10px] uppercase tracking-[0.14em] text-ink/50">Quickest reply</span>
+                </span>
               </a>
+
               <a
                 href={gmailUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group flex items-center gap-3 bg-ink px-5 py-4 text-white transition hover:bg-accent"
+                aria-label="Email me via Gmail"
+                className="group flex flex-col items-center gap-3"
               >
-                <SiGmail size={22} />
-                <span className="flex-1">
-                  <span className="block text-sm font-semibold">Email via Gmail</span>
-                  <span className="block text-xs text-white/70">Opens a new message</span>
+                <span className="float-y block" style={{ animationDuration: "5.2s", animationDelay: "-1.6s" }}>
+                  <span className="relative grid h-20 w-20 place-items-center rounded-full bg-white shadow-[0_18px_35px_-12px_rgba(66,133,244,0.55)] ring-1 ring-black/5 transition-all duration-500 ease-[cubic-bezier(.16,1,.3,1)] group-hover:-translate-y-1.5 group-hover:scale-110 group-hover:shadow-[0_26px_50px_-12px_rgba(234,67,53,0.55)] sm:h-24 sm:w-24">
+                    {/* Gmail's colourful "M" */}
+                    <svg viewBox="52 42 88 66" className="h-9 w-9 sm:h-10 sm:w-10" aria-hidden>
+                      <path fill="#4285f4" d="M58 108h14V74L52 59v43c0 3.32 2.69 6 6 6" />
+                      <path fill="#34a853" d="M120 108h14c3.32 0 6-2.69 6-6V59l-20 15" />
+                      <path fill="#fbbc04" d="M120 48v26l20-15v-8c0-7.42-8.47-11.65-14.4-7.2" />
+                      <path fill="#ea4335" d="M72 74V48l24 18 24-18v26L96 92" />
+                      <path fill="#c5221f" d="M52 51v8l20 15V48l-5.6-4.2c-5.94-4.45-14.4-.22-14.4 7.2" />
+                    </svg>
+                  </span>
                 </span>
-                <ArrowUpRight size={18} className="transition-transform group-hover:rotate-45" />
+                <span className="text-center">
+                  <span className="block text-sm font-semibold">Gmail</span>
+                  <span className="block font-mono text-[10px] uppercase tracking-[0.14em] text-ink/50">Write an email</span>
+                </span>
               </a>
             </div>
           </Reveal>
