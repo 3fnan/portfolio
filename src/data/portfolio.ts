@@ -217,7 +217,7 @@ export const projects: Project[] = [
     timeline: "2025",
     context: "Academic project",
     stack: ["Python", "TensorFlow", "Keras", "Librosa", "pyWORLD", "Streamlit"],
-    image: "",
+    image: "/projects/hummello.webp",
     art: "flute",
     problem:
       "Most people can hum a tune but can't play an instrument. Turning untrained humming into expressive instrument audio needs accurate pitch tracking and a model that maps voice features to instrument timbre.",
@@ -281,7 +281,7 @@ export const projects: Project[] = [
     context: "Personal project",
     stack: ["Python", "Django", "PostgreSQL", "SQLite", "JavaScript"],
     github: "https://github.com/3fnan",
-    image: "",
+    image: "/projects/lifeos.webp",
     art: "planner",
     problem:
       "Goals, tasks, reminders and learning usually live in separate apps, so long-term goals lose touch with what gets done each day.",

@@ -6,7 +6,6 @@ import Parallax from "./Parallax";
 import Reveal from "./Reveal";
 import { ChapterLabel } from "./ChapterHead";
 import Story from "./Story";
-import Tag from "./Tag";
 
 export default function About() {
   return (
@@ -56,7 +55,7 @@ export default function About() {
                 <div className="grid grid-cols-[120px_1fr] items-center bg-card p-6 sm:grid-cols-[150px_1fr]">
                   <Counter value={s.value} suffix={s.suffix} className="display text-5xl sm:text-6xl" />
                   <div className="border-l border-line pl-6">
-                    <Tag className="bg-transparent px-0">{s.label}</Tag>
+                    <p className="font-mono text-[11px] font-medium uppercase tracking-[0.16em] text-accent">{s.label}</p>
                     <p className="mt-1 text-xs leading-relaxed text-ink/60">{s.text}</p>
                   </div>
                 </div>

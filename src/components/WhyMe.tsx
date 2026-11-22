@@ -98,7 +98,7 @@ export default function WhyMe() {
         {/* Hummello artwork (from below) */}
         <Fly p={p} from={{ x: "-10vw", y: "50vh", r: 6 }} className="md:col-span-2">
           <div className="h-full min-h-[220px] overflow-hidden">
-            <Art kind="flute" alt="Hummello: humming turned into bansuri audio" />
+            <Art kind="flute" src="/projects/hummello.webp" alt="Hummello: humming turned into bansuri audio" />
           </div>
         </Fly>
 

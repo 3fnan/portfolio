@@ -79,7 +79,7 @@ export default function Hero() {
         <motion.div
           aria-hidden
           style={{ x: watermarkX }}
-          className="pointer-events-none absolute inset-x-0 top-[3%] select-none"
+          className="pointer-events-none absolute inset-x-0 top-[9%] select-none sm:top-[3%]"
           initial={{ opacity: 0, filter: "blur(20px)" }}
           animate={{ opacity: 1, filter: "blur(0px)" }}
           transition={{ duration: 1.6, delay: Math.max(0, R - 0.2), ease }}

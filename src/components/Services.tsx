@@ -36,7 +36,7 @@ export default function Services() {
 
       <div ref={ref} style={{ height: reduce ? "auto" : `${N * 80}vh` }} className="relative">
         <div className={`${reduce ? "" : "sticky top-0 h-svh"} flex items-center justify-center overflow-hidden`}>
-          <div className="relative aspect-square w-[min(88vw,640px)]">
+          <div className="relative aspect-square w-[min(84vw,640px)]">
             {/* orbit rings */}
             <div aria-hidden className="absolute inset-0 rounded-full border border-ink/10" />
             <div aria-hidden className="absolute inset-[14%] rounded-full border border-dashed border-ink/10 [animation:spin-slow_60s_linear_infinite]" />
@@ -54,13 +54,13 @@ export default function Services() {
                   <div
                     key={sv.title}
                     className="absolute left-1/2 top-1/2"
-                    style={{ transform: `rotate(${angle}deg) translateY(calc(-1 * min(44vw, 320px))) rotate(${-angle}deg)` }}
+                    style={{ transform: `rotate(${angle}deg) translateY(calc(-1 * min(42vw, 320px))) rotate(${-angle}deg)` }}
                   >
                     {/* keep each bubble upright while the ring turns */}
                     <motion.div style={{ rotate: counterRot }} className="-translate-x-1/2 -translate-y-1/2">
                       <div
                         className={`overflow-hidden rounded-full shadow-xl transition-all duration-500 ${
-                          on ? "h-24 w-24 ring-4 ring-accent/30 sm:h-28 sm:w-28" : "h-14 w-14 opacity-60 grayscale sm:h-16 sm:w-16"
+                          on ? "h-16 w-16 ring-4 ring-accent/30 sm:h-28 sm:w-28" : "h-10 w-10 opacity-60 grayscale sm:h-16 sm:w-16"
                         }`}
                       >
                         <Art kind={sv.art} src={sv.image} alt={sv.title} />
