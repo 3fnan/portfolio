@@ -15,7 +15,7 @@ export const profile = {
   // Short intro: who you are + what you're doing right now
   heroIntro: "AI/ML & backend engineer who turns models into production-ready products",
   valueProp:
-    "I've just graduated, and I'm at the start of my career. So far that means two internships, a Python web development training programme, a live website for a client, and AI projects I built end to end.",
+    "I've just graduated, and I'm at the start of my career. So far that means three internships, a live website for a client, and AI projects I built end to end.",
   summary:
     "I graduated in 2026 with a B.E. in Computer Science (AI & ML). Through internships and projects I've worked with Python, FastAPI, Django, PostgreSQL and React, and explored deep learning, computer vision and generative AI. I'm open to opportunities where I can keep learning and contribute to a good team.",
   email: "afnanabdulrahiman.aa@gmail.com",
@@ -50,7 +50,7 @@ export const storyFile = {
   greeting: "Hey, you found my file.",
   letter: [
     "I'm Afnan, a Computer Science (AI & ML) graduate from Kannur, Kerala, now based in Calicut. I started my degree at Sahyadri College in 2022 because I wanted to understand how machines learn. Lectures only took me so far, so I started building.",
-    "My first real project, Hummello, turned humming into bansuri flute audio. Then came the internships: at TrueByte Innovation I worked on the backend of their product, CVETrack.ai; at Blend-ed I joined a structured Python web development training programme built on Harvard's CS50 Web; and now I'm doing research at XandY Learning. Somewhere in between, I built my first website for a client in the UAE.",
+    "My first real project, Hummello, turned humming into bansuri flute audio. Then came the internships: at TrueByte Innovation I worked on the backend of their product, CVETrack.ai; at Blend-ed I started a software engineering internship learning Python web development through Harvard's CS50 Web course; and now I'm doing research at XandY Learning. Somewhere in between, I built my first website for a client in the UAE.",
     "I've finished my degree, but I'm still early in my career, and I like it that way. I'm open to opportunities where I can keep learning, ask good questions and build useful things with a good team.",
   ],
   signOff: "Afnan",
@@ -89,10 +89,10 @@ export const stats = [
     text: "CRUD APIs I worked on during my internship at TrueByte.",
   },
   {
-    value: 2,
+    value: 3,
     suffix: "",
     label: "Internships",
-    text: "In EdTech (XandY Learning) and cybersecurity (TrueByte), working on real codebases.",
+    text: "At XandY Learning, TrueByte Innovation and Blend-ed, working on real codebases and learning from teams.",
   },
 ];
 
@@ -371,14 +371,14 @@ export const experience: Experience[] = [
     ],
   },
   {
-    role: "Python Web Development Trainee",
+    role: "Software Engineering Intern",
     company: "Blend-ed",
     location: "Cyber Park, Calicut",
     period: "Aug 2026 – Sep 2026",
     summary:
-      "A structured, course-based training programme (not a product or engineering role): I learned Python web development by working through Harvard's CS50 Web curriculum with Blend-ed's guidance.",
+      "Software engineering internship focused on learning Python web development through Harvard's CS50 Web course. I left before completing it, as the team was not able to give me the training time they had planned due to their workload.",
     points: [
-      "Covered Django models, authentication, forms, routing, CRUD, pagination and migrations.",
+      "Worked through Django models, authentication, forms, routing, CRUD, pagination and migrations.",
       "Course projects: a social network, an auction platform and an encyclopedia app.",
     ],
   },
