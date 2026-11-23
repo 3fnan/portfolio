@@ -15,9 +15,9 @@ export const profile = {
   // Short intro: who you are + what you're doing right now
   heroIntro: "AI/ML & backend engineer who turns models into production-ready products",
   valueProp:
-    "I'm at the start of my journey. So far that means a few internships, one website for a small client, and personal AI projects I built to learn.",
+    "I've just graduated, and I'm at the start of my career. So far that means two internships, a Python web development training programme, a live website for a client, and AI projects I built end to end.",
   summary:
-    "I studied Computer Science with a focus on AI & ML. Through internships and projects I've worked with Python, FastAPI, Django, PostgreSQL and React, and explored deep learning, computer vision and generative AI. I'm open to opportunities where I can keep learning and contribute to a good team.",
+    "I graduated in 2026 with a B.E. in Computer Science (AI & ML). Through internships and projects I've worked with Python, FastAPI, Django, PostgreSQL and React, and explored deep learning, computer vision and generative AI. I'm open to opportunities where I can keep learning and contribute to a good team.",
   email: "afnanabdulrahiman.aa@gmail.com",
   phone: "+91 93834 66313",
   // WhatsApp number: country code + number, digits only (used for wa.me links)
@@ -49,9 +49,9 @@ export const storyFile = {
   ],
   greeting: "Hey, you found my file.",
   letter: [
-    "I'm Afnan, a computer science student from Kannur, Kerala, now based in Calicut. I started my degree at Sahyadri College in 2022 because I wanted to understand how machines learn. Lectures only took me so far, so I started building.",
-    "My first real project, Hummello, turned humming into bansuri flute audio. Then came the internships: at TrueByte Innovation I worked on the backend of their product, CVETrack.ai; at Blend-ed I learned Django through Harvard's CS50 Web; and now I'm doing research at XandY Learning. Somewhere in between, I built my first website for a client in the UAE.",
-    "I'm still early in this, and I like it that way. I'm open to opportunities where I can keep learning, ask good questions and build useful things with a good team.",
+    "I'm Afnan, a Computer Science (AI & ML) graduate from Kannur, Kerala, now based in Calicut. I started my degree at Sahyadri College in 2022 because I wanted to understand how machines learn. Lectures only took me so far, so I started building.",
+    "My first real project, Hummello, turned humming into bansuri flute audio. Then came the internships: at TrueByte Innovation I worked on the backend of their product, CVETrack.ai; at Blend-ed I joined a structured Python web development training programme built on Harvard's CS50 Web; and now I'm doing research at XandY Learning. Somewhere in between, I built my first website for a client in the UAE.",
+    "I've finished my degree, but I'm still early in my career, and I like it that way. I'm open to opportunities where I can keep learning, ask good questions and build useful things with a good team.",
   ],
   signOff: "Afnan",
   // words that light up in the accent colour as the letter plays
@@ -70,15 +70,15 @@ export const navLinks = [
   { href: "#contact", label: "Contact" },
 ];
 
-// "Worked with & certified by" logo strip
+// "Worked with & certified by" strip: where I worked first, then education and certifications
 export const brands = [
   "XandY Learning",
   "TrueByte Innovation",
   "Blend-ed",
+  "Sahyadri College",
   "Harvard CS50",
   "Oracle",
   "Infosys Springboard",
-  "Sahyadri College",
 ];
 
 export const stats = [
@@ -89,10 +89,10 @@ export const stats = [
     text: "CRUD APIs I worked on during my internship at TrueByte.",
   },
   {
-    value: 3,
+    value: 2,
     suffix: "",
     label: "Internships",
-    text: "Short internships in EdTech and cybersecurity, learning on real codebases.",
+    text: "In EdTech (XandY Learning) and cybersecurity (TrueByte), working on real codebases.",
   },
 ];
 
@@ -213,7 +213,7 @@ export const projects: Project[] = [
     tagline: "Hum a melody, hear it played back as a bansuri flute.",
     description:
       "College project that turns humming into bansuri-like audio using pitch features and a Transformer autoencoder.",
-    role: "Student (academic project)",
+    role: "Academic project (B.E. Computer Science)",
     timeline: "2025",
     context: "Academic project",
     stack: ["Python", "TensorFlow", "Keras", "Librosa", "pyWORLD", "Streamlit"],
@@ -371,14 +371,15 @@ export const experience: Experience[] = [
     ],
   },
   {
-    role: "Software Engineer Intern",
+    role: "Python Web Development Trainee",
     company: "Blend-ed",
     location: "Cyber Park, Calicut",
     period: "Aug 2026 – Sep 2026",
-    summary: "Structured Python web development training through CS50 Web.",
+    summary:
+      "A structured, course-based training programme (not a product or engineering role): I learned Python web development by working through Harvard's CS50 Web curriculum with Blend-ed's guidance.",
     points: [
-      "Django apps covering models, auth, forms, routing, CRUD, pagination and migrations.",
-      "Built a social network, an auction platform and an encyclopedia app.",
+      "Covered Django models, authentication, forms, routing, CRUD, pagination and migrations.",
+      "Course projects: a social network, an auction platform and an encyclopedia app.",
     ],
   },
 ];
