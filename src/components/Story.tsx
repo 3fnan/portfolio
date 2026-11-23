@@ -1,33 +1,32 @@
 import { profile, storyFile } from "@/data/portfolio";
-import Reveal from "./Reveal";
+import Marquee from "./Marquee";
 import ScrollLetter from "./ScrollLetter";
 
 /**
- * "My story so far", laid out like a personal file:
- * a status strip and a first-person letter that plays as you scroll.
+ * "My story so far": a moving status line (like the logo strip, no box), then the letter
+ * that plays as you scroll.
  */
-
 export default function Story() {
+  const items = [
+    `${profile.firstName.toUpperCase()}::HERE`,
+    ...storyFile.meta.map((m) => `${m.k}::${m.v}`),
+    "MY STORY SO FAR",
+  ];
+
   return (
     <div className="mt-28">
-      {/* status strip */}
-      <Reveal>
-        <div className="flex flex-wrap items-center gap-x-6 gap-y-2 border-y border-line py-3 font-mono text-[11px] uppercase tracking-[0.12em] text-ink/55">
-          <span className="flex items-center gap-2 text-ink">
-            <span className="relative flex h-2 w-2">
-              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-green-500 opacity-60" />
-              <span className="relative inline-flex h-2 w-2 rounded-full bg-green-500" />
-            </span>
-            {profile.firstName.toUpperCase()}::HERE
+      <Marquee duration={28} gap="2.5rem" className="py-4">
+        {items.map((t) => (
+          <span key={t} className="whitespace-nowrap font-mono text-[12px] font-medium uppercase tracking-[0.16em] text-ink/60">
+            {t.split("::").map((part, i, arr) => (
+              <span key={i}>
+                {i > 0 && <span className="opacity-50">::</span>}
+                <span className={i === arr.length - 1 && arr.length > 1 ? "text-ink" : ""}>{part}</span>
+              </span>
+            ))}
           </span>
-          {storyFile.meta.map((m) => (
-            <span key={m.k}>
-              {m.k}::<span className="text-ink">{m.v}</span>
-            </span>
-          ))}
-          <span className="ml-auto hidden sm:inline">My story so far</span>
-        </div>
-      </Reveal>
+        ))}
+      </Marquee>
 
       {/* the letter: pinned, scroll-driven */}
       <ScrollLetter />
