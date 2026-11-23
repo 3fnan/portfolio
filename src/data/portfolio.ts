@@ -243,7 +243,7 @@ export const projects: Project[] = [
     title: "Al Fan Al Aniq",
     category: "Client Web",
     year: "2026",
-    tagline: "A website I built for a technical services company in the UAE.",
+    tagline: "A website I built for a technical services company in UAE.",
     description:
       "Responsive company website with reusable sections, put live on the client's own domain.",
     role: "Freelance web developer",
