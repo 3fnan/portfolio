@@ -128,23 +128,23 @@ export default function ScrollLetter() {
         </div>
 
         <div className="mt-8 grid flex-1 items-center gap-10 md:grid-cols-[270px_1fr] md:gap-16">
-          {/* floating stamp photo */}
-          <motion.figure style={{ rotate: photoRot, y: photoY }} className="hidden md:block">
-            <div className="float-y border border-line bg-card p-2.5 pb-3 shadow-2xl shadow-black/10">
+          {/* floating stamp photo: a small tilted polaroid on phones, a tall card on desktop */}
+          <motion.figure style={{ rotate: photoRot, y: photoY }} className="mx-auto w-28 sm:w-36 md:mx-0 md:block md:w-full">
+            <div className="float-y -rotate-3 border border-line bg-card p-1.5 pb-2 shadow-2xl shadow-black/10 md:p-2.5 md:pb-3">
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img src={storyFile.stampImage} alt={profile.name} className="aspect-[4/5] w-full object-cover grayscale-[35%]" />
-              <figcaption className="mt-2.5 flex justify-between font-mono text-[10px] uppercase tracking-[0.12em] text-ink/55">
+              <figcaption className="mt-2 flex justify-between font-mono text-[9px] uppercase tracking-[0.12em] text-ink/55 md:mt-2.5 md:text-[10px]">
                 <span>{profile.firstName}</span>
                 <span>N°01</span>
               </figcaption>
             </div>
-            <p className="mt-6 font-mono text-[11px] uppercase leading-relaxed tracking-[0.12em] text-ink/55">
+            <p className="mt-6 hidden font-mono text-[11px] uppercase leading-relaxed tracking-[0.12em] text-ink/55 md:block">
               Kannur · Calicut · Mangalore · IN
             </p>
           </motion.figure>
 
           {/* the slides */}
-          <div className="relative h-[60svh] md:h-[56svh]">
+          <div className="relative h-[46svh] md:h-[56svh]">
             {slides.map((s, i) => (
               <SlideView key={i} slide={s} i={i} p={scrollYProgress} />
             ))}
