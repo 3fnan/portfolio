@@ -376,7 +376,7 @@ export const experience: Experience[] = [
     location: "Cyber Park, Calicut",
     period: "Aug 2026 – Sep 2026",
     summary:
-      "Software engineering internship focused on learning Python web development through Harvard's CS50 Web course. I left before completing it, as the team was not able to give me the training time they had planned due to their workload.",
+      "Software engineering internship focused on learning Python web development through Harvard's CS50 Web course. It was my first hands-on step into Django, and where I learned to build web backends properly.",
     points: [
       "Worked through Django models, authentication, forms, routing, CRUD, pagination and migrations.",
       "Course projects: a social network, an auction platform and an encyclopedia app.",
