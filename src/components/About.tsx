@@ -43,7 +43,7 @@ export default function About() {
         <div>
           <Reveal>
             <p className="max-w-md text-sm font-semibold uppercase leading-relaxed">
-              Hi, I&apos;m {profile.firstName}, a Computer Science (AI &amp; ML) graduate who enjoys building AI and
+              Hi, I&apos;m {profile.firstName}, a Computer Science graduate who enjoys building AI and
               backend software.
             </p>
             <p className="mt-5 max-w-md font-display text-xl font-semibold leading-snug">{profile.valueProp}</p>

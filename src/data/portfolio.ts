@@ -303,7 +303,7 @@ export const projects: Project[] = [
     title: "TrueByte Internship",
     category: "Internship",
     year: "2026",
-    tagline: "My internship work on CVETrack.ai, TrueByte Innovation's cybersecurity product.",
+    tagline: "My internship work on CVETrack.ai, a product of TrueByte Innovation LLP.",
     description:
       "As an intern at TrueByte Innovation LLP, I worked on the policy engine of their product CVETrack.ai: nested AND/OR rules, a PostgreSQL schema, CRUD APIs and parts of the React UI.",
     role: "Software engineer intern (mostly backend). CVETrack.ai is TrueByte's product; I contributed to it.",
